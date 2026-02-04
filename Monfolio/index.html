@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio | Talla Diop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #f0f1f3;
+            border-left: 5px solid #eaebec;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .skills, .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #f0f1f3;
+            text-decoration: none;
+        }
+
+        .hero {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    padding: 60px 20px;
+}
+
+.hero-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-photo {
+    flex: 0 0 220px;
+    text-align: center;
+}
+
+.hero-photo img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+}
+/* Animation fade-in */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-text {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-photo {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Bouton CV */
+.btn-cv {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #ffffff;
+    color: #1e3c72;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-cv i {
+    margin-right: 8px;
+}
+
+.btn-cv:hover {
+    background: #e6e6e6;
+    transform: translateY(-3px);
+}
+
+/* Icônes sociales */
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5em;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffd700;
+    transform: scale(1.2);
+}
+ .about-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text p {
+    font-size: 1.05em;
+    margin-bottom: 15px;
+}
+
+.long-version {
+    display: none;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #f3f5f8;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1em;
+}
+
+.toggle-btn:hover {
+    text-decoration: underline;
+}
+
+/* Timeline */
+.about-timeline {
+    border-left: 3px solid #1e3c72;
+    padding-left: 25px;
+}
+
+.timeline-item {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: #1e3c72;
+    border-radius: 50%;
+}
+
+.year {
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* Timeline scrollable */
+.about-timeline {
+    max-height: 320px;
+    overflow-y: auto;
+    padding-left: 30px;
+    border-left: 3px solid #1e3c72;
+}
+
+/* Scrollbar élégante */
+.about-timeline::-webkit-scrollbar {
+    width: 6px;
+}
+.about-timeline::-webkit-scrollbar-thumb {
+    background: #1e3c72;
+    border-radius: 10px;
+}
+
+/* Timeline item */
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    background: #1e3c72;
+    border-radius: 50%;
+}
+
+/* Visible on scroll */
+.timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Timeline content */
+.timeline-content {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Logos */
+.timeline-logo {
+    width: 45px;
+    margin-bottom: 10px;
+}
+.timeline-content {
+    backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.85);
+}
+.year {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+#projects {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.project {
+    background: white;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project h3 {
+    color: #1e3c72;
+    margin-bottom: 8px;
+}
+
+.project-date {
+    font-size: 0.9em;
+    color: #666;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.project ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.project p {
+    margin-bottom: 10px;
+}
+/* Couleur principale des projets */
+.project {
+    color: #1e3c72; /* même couleur que les titres */
+}
+
+/* Optionnel : texte secondaire un peu plus doux mais même teinte */
+.project-date {
+    color: #1e3c72;
+    opacity: 0.8;
+}
+
+/* Listes */
+.project ul li {
+    color: #1e3c72;
+}
+
+/* Paragraphes */
+.project p {
+    color: #1e3c72;
+}
+/* Grille horizontale des projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* Carte projet */
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.project:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 5px 30px rgba(0,0,0,0.12);
+}
+.project {
+    border-left: 4px solid #1e3c72;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+}
+
+.about-text {
+    max-width: 800px;
+    text-align: center;
+    margin: auto;
+}
+
+.toggle-btn {
+    display: block;
+    margin: 20px auto;
+}
+
+
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <header class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Talla Diop</h1>
+            <p>Master 1 Intelligence Artificielle & SmartTech</p>
+            <p>Passionné par l’IA, les données et les systèmes intelligents</p>
+            <a href="Cirriculum Vitae (CV).pdf" class="btn-cv" download>
+    <i class="fas fa-download"></i> Télécharger mon CV
+</a>
+
+        </div>
+
+        <div class="hero-photo">
+    <img src="dioptrie.jpeg" alt="Photo de Talla Diop">
+
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/talla-diop-52baa22a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/Dioptalla" target="_blank">  
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+       </div>
+</header>
+
+<section>
+    <section id="about">
+    <h2>À propos de moi</h2>
+
+    <div class="about-container">
+    <div class="about-card">
+        <p class="short-version">
+            Titulaire d’une <strong>Licence en Informatique (Génie Logiciel)</strong>,
+            je suis actuellement en <strong>Master 1 Intelligence Artificielle & SmartTech</strong>,
+            en <strong>co-diplomation avec le Master Ingénierie des Systèmes Complexes
+            de l’Université de Technologie de Troyes (France)</strong>.
+        </p>
+
+        <p class="more-text">
+            Ce parcours académique me permet de renforcer mes compétences en
+            <strong>développement logiciel, intelligence artificielle,
+            analyse des données et systèmes intelligents</strong>,
+            tout en m’ouvrant aux enjeux liés aux
+            <strong>systèmes complexes et aux technologies avancées</strong>.
+        </p>
+
+    </div>
+</div>
+</section>
+
+    <section id="projects">
+    <h2>Projets Académiques & Opérationnels</h2>
+
+    <div class="projects-grid">
+        <!-- Projet 1 -->
+        <div class="project">
+            <h3>Projet Opérationnel de Fin de Cycle</h3>
+        <span class="project-date">10 Février – 03 Juin 2025</span>
+        <p><strong>Sujet :</strong> Système d'information financière sur le contrôle du versement et du reversement des recettes municipales, sous couvert de la perception municipale de Thiès (assiette de l’étude : Mairie de Thiès-Ville).</p>
+       
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="project">
+            <h3>Cryptographie et chiffrement des données en Flutter</h3>
+        <span class="project-date">15 Avril – 05 Mai 2025</span>
+        
+        </div>
+
+        <!-- Projet 3 -->
+        <div class="project">
+            <h3>Conception d'un logiciel de Délibération du BFEM au Sénégal</h3>
+        <span class="project-date">02 Février – 02 Mars 2025</span>
+        
+        </div>
+
+        <!-- Projet 4 -->
+        <div class="project">
+            <h3>EventManager – Application de Gestion d’Évènements</h3>
+        
+        </div>
+
+        <!-- Projet 5 -->
+        <div class="project">
+            <h3>
+Blockchain simplifiée avec signature ECC</h3>
+        
+        </div>
+        <!-- Projet 6 -->
+        <div class="project">
+            <h3>Modélisation des connaissances et raisonnement pour un système expert
+de guidance pédagogique dans une UFR : Cas de l’UFR SET</h3>
+        
+        </div>
+        <!-- Projet 7 -->
+        <div class="project">
+            <h3>Algorithme des graphes :Arbre couvrant minimal (Kruskal)</h3>
+        
+        </div>
+        <!-- Projet 8 -->
+        <div class="project">
+            <h3>EventManager – Application de Gestion d’Évènements</h3>
+        
+        </div>
+    </div>
+    <h4>Pour plus d’informations détaillées sur les projets, nous vous invitons à télécharger le CV .</h>
+</section>
+<section>
+    <h2>Objectifs professionnels</h2>
+    <p>
+        Devenir <strong>ingénieur en intelligence artificielle / data / smart technologies</strong>,
+        contribuer à des projets innovants et développer des solutions intelligentes utiles à la société.
+    </p>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <ul>
+        <li>Email : <em>tallaadiop750@gmail.com</em></li>
+        <li>Téléphone : <em>+221 78 110 47 03</em></li>
+        
+    </ul>
+</section>
+
+<footer>
+    <p>© 2026 – Talla Diop | Portfolio professionnel</p>
+</footer>
+
+</body>
+</html>
